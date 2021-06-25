@@ -20,6 +20,14 @@ namespace ET
             
             Game.Scene.AddComponent<NetThreadComponent>();
 
+            Game.Scene.AddComponent<FUIComponent>();
+            
+            Game.Scene.AddComponent<FUIPackageComponent>();
+
+            await Game.Scene.AddComponent<FUIInitComponent>().Init();
+
+            Game.Scene.AddComponent<FUIStackComponent>();
+
             Game.Scene.AddComponent<ZoneSceneManagerComponent>();
             
             Game.Scene.AddComponent<GlobalComponent>();

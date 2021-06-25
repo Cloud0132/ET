@@ -9,8 +9,13 @@ namespace ET
         {
             try
             {
+                Log.Debug("************zoneScene    111111");
                 // 创建一个ETModel层的Session
                 R2C_Login r2CLogin;
+
+
+                Log.Debug("************zoneScene" + zoneScene.ToString());
+                Log.Debug("**********zoneScene.GetComponent<NetKcpComponent>()" + (zoneScene.GetComponent<NetKcpComponent>() == null ));
                 using (Session session = zoneScene.GetComponent<NetKcpComponent>().Create(NetworkHelper.ToIPEndPoint(address)))
                 {
                     r2CLogin = (R2C_Login) await session.Call(new C2R_Login() { Account = account, Password = "111111" });

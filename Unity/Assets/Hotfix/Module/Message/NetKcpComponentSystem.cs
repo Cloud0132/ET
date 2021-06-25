@@ -100,6 +100,7 @@ namespace ET
         public static Session Create(this NetKcpComponent self, IPEndPoint realIPEndPoint)
         {
             long channelId = RandomHelper.RandInt64();
+            Log.Debug("***************channelId" + channelId);
             Session session = EntityFactory.CreateWithParentAndId<Session, AService>(self, channelId, self.Service);
             session.RemoteAddress = realIPEndPoint;
             session.AddComponent<SessionIdleCheckerComponent, int>(NetThreadComponent.checkInteral);

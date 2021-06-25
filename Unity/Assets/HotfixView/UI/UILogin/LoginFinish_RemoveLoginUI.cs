@@ -1,12 +1,12 @@
-﻿
-
-namespace ET
+﻿namespace ET
 {
 	public class LoginFinish_RemoveLoginUI: AEvent<EventType.LoginFinish>
 	{
 		protected override async ETTask Run(EventType.LoginFinish args)
 		{
-			await UIHelper.Remove(args.ZoneScene, UIType.UILogin);
+			Game.Scene.GetComponent<FUIComponent>().Remove(FUIType.UILogin);
+			Game.Scene.GetComponent<FUIPackageComponent>().RemovePackage(FUIType.UILogin);
+			await ETTask.CompletedTask;
 		}
 	}
 }

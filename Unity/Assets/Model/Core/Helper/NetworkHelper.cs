@@ -30,10 +30,12 @@ namespace ET
 
 		public static IPEndPoint ToIPEndPoint(string address)
 		{
+			Log.Debug("********address" + address);
 			int index = address.LastIndexOf(':');
 			string host = address.Substring(0, index);
 			string p = address.Substring(index + 1);
 			int port = int.Parse(p);
+			Log.Debug("%s port %s hotst", port, host);
 			return ToIPEndPoint(host, port);
 		}
 	}
