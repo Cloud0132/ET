@@ -6,7 +6,7 @@
 		{
 			FUIComponent fuiComponent = Game.Scene.GetComponent<FUIComponent>();
 
-			FUI ui = await FUILoginFactory.Create();
+			FUI ui = await FUILoginFactory.Create(args.ZoneScene);
 			Game.Scene.GetComponent<FUIComponent>().Add(ui);
 		}
 	}

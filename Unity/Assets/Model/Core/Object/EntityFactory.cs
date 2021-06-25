@@ -124,6 +124,16 @@ namespace ET
             return component;
         }
 
+        public static T Create<T, A>(A a, bool isFromPool = false) where T : Entity
+        {
+            Type type = typeof (T);
+            T component = (T) Entity.Create(type, isFromPool);
+            // component.Domain = domain;
+            component.Id = IdGenerater.Instance.GenerateId();
+            EventSystem.Instance.Awake(component, a);
+            return component;
+        }
+
         public static T Create<T, A>(Entity domain, A a, bool isFromPool = false) where T : Entity
         {
             Type type = typeof (T);
@@ -133,19 +143,6 @@ namespace ET
             EventSystem.Instance.Awake(component, a);
             return component;
         }
-
-        public static T Create<T, A>(A a) where T : Entity
-		{
-			T component = Game.ObjectPool.Fetch<T>();
-			// ComponentWithId componentWithId = component as ComponentWithId;
-			// if (componentWithId != null)
-			// {
-			// 	componentWithId.Id = component.InstanceId;
-			// }
-			Game.EventSystem.Awake(component, a);
-			return component;
-		}
-
 
         public static T Create<T, A, B>(Entity domain, A a, B b, bool isFromPool = false) where T : Entity
         {

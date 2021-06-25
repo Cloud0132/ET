@@ -18,7 +18,7 @@ namespace ET
 
 	        unit.AddComponent<ObjectWait>();
 
-	        unit.AddComponent<XunLuoPathComponent>();
+	        // unit.AddComponent<XunLuoPathComponent>();
 
 	        UnitComponent unitComponent = domain.GetComponent<UnitComponent>();
             unitComponent.Add(unit);
